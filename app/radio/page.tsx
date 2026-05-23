@@ -14,8 +14,6 @@ const [displayTrack, setDisplayTrack] = useState<any>(null);
   const [genre, setGenre] = useState("All");
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const displayTrack = currentTrack || tracks[0] || null;
-
   function genreKey(value: string) {
     return value
       .toLowerCase()
