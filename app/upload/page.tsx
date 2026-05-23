@@ -135,7 +135,7 @@ export default function UploadPage() {
         notes: form.get("notes"),
         song_url: songUrl,
         cover_url: coverUrl,
-        video_url: videoUrl,
+        video_url: videoUrl || "",
         status: "pending",
         votes: 0,
         tips: 0,
