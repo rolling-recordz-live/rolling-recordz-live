@@ -8,6 +8,7 @@ const SLOT_SECONDS = 180;
 export default function RadioPage() {
   const [tracks, setTracks] = useState<any[]>([]);
   const [currentTrack, setCurrentTrack] = useState<any>(null);
+const [displayTrack, setDisplayTrack] = useState<any>(null);
   const [status, setStatus] = useState("Loading station...");
   const [worldUrl, setWorldUrl] = useState("");
   const [genre, setGenre] = useState("All");
@@ -79,7 +80,7 @@ export default function RadioPage() {
     setTracks(list);
 
     if (list.length) {
-      setCurrentTrack(list[0]);
+      if (!currentTrack) setCurrentTrack(list[0]);
       setStatus(`Loaded ${list.length} tracks. Tap PLAY.`);
     } else {
       setCurrentTrack(null);
@@ -114,6 +115,7 @@ export default function RadioPage() {
     }
 
     setCurrentTrack(picked.track);
+setDisplayTrack(picked.track);
 
     try {
       const audio = audioRef.current;
