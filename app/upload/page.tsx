@@ -357,7 +357,7 @@ export default function UploadPage() {
 
           <div>
             <label className="block mb-2 text-white/60">Upload Song</label>
-            <input type="file" name="song" accept="audio/*" className="w-full" />
+            <input type="file" name="song" accept="audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/m4a,audio/mp4" className="w-full" />
           </div>
 
           <div>
@@ -382,7 +382,7 @@ export default function UploadPage() {
             <input
               type="file"
               name="video"
-              accept="video/*"
+              accept="audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/m4a,audio/mp4,video/*"
               className="w-full"
               onChange={(e) => {
                 const file = e.target.files?.[0];

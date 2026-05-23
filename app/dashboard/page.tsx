@@ -236,9 +236,9 @@ export default function ArtistDashboard() {
             <option>Video Feature</option>
           </select>
 
-          <div><label className="block mb-2 text-white/60">Song</label><input type="file" name="song" accept="audio/*" /></div>
+          <div><label className="block mb-2 text-white/60">Song</label><input type="file" name="song" accept="audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/m4a,audio/mp4" /></div>
           <div><label className="block mb-2 text-white/60">Cover</label><input type="file" name="cover" accept="image/*" /></div>
-          <div className="md:col-span-2"><label className="block mb-2 text-white/60">Video / Visual</label><input type="file" name="video" accept="video/*" /></div>
+          <div className="md:col-span-2"><label className="block mb-2 text-white/60">Video / Visual</label><input type="file" name="video" accept="audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/m4a,audio/mp4,video/*" /></div>
 
           <textarea name="notes" placeholder="Tell us about the record..." className="md:col-span-2 min-h-[150px] bg-black/30 border border-white/10 rounded-xl p-4" />
 
