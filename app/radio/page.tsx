@@ -181,7 +181,15 @@ setDisplayTrack(picked.track);
                   ON AIR
                 </div>
 
-                {displayTrack?.cover_url ? (
+                {displayTrack?.video_url ? (
+                  <video
+                    src={displayTrack.video_url}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover"
+                  />
+                ) : displayTrack?.cover_url ? (
                   <img
                     src={displayTrack.cover_url}
                     className="h-full w-full object-cover"
