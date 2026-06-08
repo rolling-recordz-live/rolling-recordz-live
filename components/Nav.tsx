@@ -59,7 +59,7 @@ export default function Nav() {
           <img
             src={icon}
             alt=""
-            className="w-6 h-6 object-contain"
+            className="w-9 h-9 object-contain"
           />
         )}
         <span>{label}</span>
