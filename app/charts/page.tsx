@@ -54,7 +54,7 @@ export default async function ChartsPage() {
                   <h3 className="font-black truncate">{track.artist}</h3>
                   <p className="text-white/60 text-sm">{track.genre || "Radio Rotation"}</p>
                   <p className="text-[#ffd95a] text-sm">
-                    ⭐ {(track.stars || 0) + (track.votes || 0)}
+                    <img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> {(track.stars || 0) + (track.votes || 0)}
                   </p>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default async function ChartsPage() {
                   <h3 className="font-black truncate">{video.artist}</h3>
                   <p className="text-white/60 text-sm">{video.genre || "Music Video"}</p>
                   <p className="text-[#ffd95a] text-sm">
-                    ⭐ {video.video_votes || 0}
+                    <img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> {video.video_votes || 0}
                   </p>
                 </div>
               </div>

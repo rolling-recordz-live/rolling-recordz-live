@@ -119,7 +119,7 @@ export default function VideoOfTheWeekPage() {
                 onClick={() => voteVideo(item)}
                 className="w-14 h-14 rounded-full bg-black/60 border border-white/20 backdrop-blur font-black text-xl"
               >
-                ⭐
+                <img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" />
               </button>
               <span className="font-black">{item.video_votes || 0}</span>
             </div>

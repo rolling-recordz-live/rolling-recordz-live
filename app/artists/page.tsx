@@ -145,7 +145,7 @@ export default function ArtistsPage() {
                 onClick={(e) => vote(e, artist.id, artist.votes || 0)}
                 className="btn"
               >
-                Vote ⭐ {artist.votes || 0}
+                Vote <img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> {artist.votes || 0}
               </button>
 
               <span className="ghost">

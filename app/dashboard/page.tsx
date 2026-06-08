@@ -185,7 +185,7 @@ export default function ArtistDashboard() {
               <div>
                 <h2 className="text-3xl font-black">{u.artist}</h2>
                 <p className="text-white/60 mb-3">Status: <span className="text-[#25c8ff] font-black">{u.status}</span></p>
-                <p className="text-white/70">⭐ {(u.stars || 0) + (u.votes || 0)} stars • 🔥 {u.votes || 0} votes • {u.tips_records || 0} Records tipped</p>
+                <p className="text-white/70"><img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> {(u.stars || 0) + (u.votes || 0)} stars • <img src="/icons/fire.PNG" alt="Fire" className="inline-block w-5 h-5 object-contain align-middle" /> {u.votes || 0} votes • {u.tips_records || 0} Records tipped</p>
                 {u.song_url && <audio controls src={u.song_url} className="w-full mt-4" />}
               </div>
             </div>

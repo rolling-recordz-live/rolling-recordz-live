@@ -236,8 +236,8 @@ export default function CommunityPage() {
                     </p>
 
                     <div className="flex gap-4 flex-wrap mb-4 text-sm font-bold">
-                      <span>🔥 {artist.votes || 0} votes</span>
-                      <span>⭐ {artist.stars || 0} stars</span>
+                      <span><img src="/icons/fire.PNG" alt="Fire" className="inline-block w-5 h-5 object-contain align-middle" /> {artist.votes || 0} votes</span>
+                      <span><img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> {artist.stars || 0} stars</span>
                       <span>💬 {comments.length} comments</span>
                     </div>
 
@@ -333,7 +333,7 @@ export default function CommunityPage() {
                       {artist.artist}
                     </p>
                     <p className="text-white/60 text-sm">
-                      ⭐ {artist.stars || 0} • 🔥 {artist.votes || 0}
+                      <img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> {artist.stars || 0} • <img src="/icons/fire.PNG" alt="Fire" className="inline-block w-5 h-5 object-contain align-middle" /> {artist.votes || 0}
                     </p>
                   </div>
                 </div>
@@ -351,10 +351,10 @@ export default function CommunityPage() {
             </h2>
 
             <div className="space-y-3 text-white/70">
-              <p>⭐ 75 Stars = Radio Spotlight</p>
-              <p>⭐ 100 Stars = Free Photo Shoot</p>
-              <p>⭐ 150 Stars = Free Studio Hour</p>
-              <p>⭐ 500 Stars = Live Interview</p>
+              <p><img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> 75 Stars = Radio Spotlight</p>
+              <p><img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> 100 Stars = Free Photo Shoot</p>
+              <p><img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> 150 Stars = Free Studio Hour</p>
+              <p><img src="/icons/star.PNG" alt="Star" className="inline-block w-5 h-5 object-contain align-middle" /> 500 Stars = Live Interview</p>
             </div>
           </div>
         </aside>
