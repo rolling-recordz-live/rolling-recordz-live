@@ -4,6 +4,16 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
+const iconMap: Record<string, string> = {
+  Home: "/icons/home.PNG",
+  Radio: "/icons/radio.PNG",
+  Gallery: "/icons/gallery.PNG",
+  Community: "/icons/community.PNG",
+  Artists: "/icons/artists.PNG",
+  "Book Service": "/icons/book-service.PNG",
+  Services: "/icons/services.PNG",
+};
+
 export default function Nav() {
   const router = useRouter();
   const menuRef = useRef<HTMLDetailsElement | null>(null);
@@ -40,6 +50,23 @@ export default function Nav() {
     ["About", "/about"],
   ];
 
+  function NavLabel({ label }: { label: string }) {
+    const icon = iconMap[label];
+
+    return (
+      <span className="flex items-center gap-2">
+        {icon && (
+          <img
+            src={icon}
+            alt=""
+            className="w-6 h-6 object-contain"
+          />
+        )}
+        <span>{label}</span>
+      </span>
+    );
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-[999999] bg-black border-b border-white/10">
       <div className="flex items-center justify-between px-4 py-4">
@@ -50,7 +77,9 @@ export default function Nav() {
 
         <nav className="hidden lg:flex gap-4 text-sm font-bold">
           {links.map(([label, href]) => (
-            <Link key={href} href={href}>{label}</Link>
+            <Link key={href} href={href}>
+              <NavLabel label={label} />
+            </Link>
           ))}
         </nav>
 
@@ -69,7 +98,7 @@ export default function Nav() {
                 }}
                 className="block rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white font-black"
               >
-                {label}
+                <NavLabel label={label} />
               </Link>
             ))}
           </div>
