@@ -30,6 +30,7 @@ export default function Nav() {
     ["Record Players", "/record-players"],
     ["Gallery", "/gallery"],
     ["Video Of The Week", "/video-of-the-week"],
+    ["Broadcast Archives", "/broadcast-archives"],
     ["Community", "/community"],
     ["Artists", "/artists"],
     ["Book Service", "/contact"],
