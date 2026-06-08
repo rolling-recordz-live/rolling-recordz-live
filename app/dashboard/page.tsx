@@ -4,9 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 const REWARDS = [
-  ["Radio Spotlight", 75, "Unlock spotlight radio placement."],
-  ["Free Photo Shoot", 100, "Unlock a free photo shoot."],
-  ["Free Studio Hour", 150, "Unlock one free studio hour."],
+  ["Radio Spotlight", 250, "Unlock spotlight radio placement."],
+  ["Free Photo Shoot", 500, "Unlock a free photo shoot."],
+  ["Free Studio Hour", 1000, "Unlock one free studio hour."],
 ];
 
 export default function ArtistDashboard() {
@@ -95,7 +95,7 @@ export default function ArtistDashboard() {
         artist: form.get("artist"),
         real_name: form.get("realName"),
         instagram: form.get("instagram"),
-        email: user.email,
+        email: String(user.email || "").toLowerCase(),
         submission_type: form.get("submissionType"),
         genre: form.get("genre"),
         notes: form.get("notes"),
