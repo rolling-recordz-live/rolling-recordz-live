@@ -17,6 +17,8 @@ type Tab =
   | "moderation";
 
 export default function OwnerPage() {
+  const [passcode, setPasscode] = useState("");
+  const [unlockedOwner, setUnlockedOwner] = useState(false);
   const [tab, setTab] = useState<Tab>("overview");
   const [uploads, setUploads] = useState<any[]>([]);
   const [approved, setApproved] = useState<any[]>([]);
@@ -106,6 +108,20 @@ export default function OwnerPage() {
     const { error } = await supabase.from("artist_uploads").update({ featured: true }).eq("id", id);
     if (error) return setStatus(error.message);
     setStatus("Featured artist updated.");
+    loadAll();
+  }
+
+  async function markVideoOfWeek(id: string) {
+    await supabase.from("artist_uploads").update({ video_of_week: false }).eq("video_of_week", true);
+
+    const { error } = await supabase
+      .from("artist_uploads")
+      .update({ video_of_week: true })
+      .eq("id", id);
+
+    if (error) return setStatus(error.message);
+
+    setStatus("Music Video of the Week updated.");
     loadAll();
   }
 
@@ -255,6 +271,37 @@ export default function OwnerPage() {
     { id: "moderation", label: "Moderation" },
   ];
 
+  if (!unlockedOwner) {
+    return (
+      <section className="px-6 md:px-20 py-10">
+        <div className="card max-w-xl mx-auto text-center">
+          <p className="text-[#ffd95a] tracking-[.3em] text-sm font-black mb-2">
+            OWNER ACCESS
+          </p>
+
+          <h1 className="text-5xl font-black mb-6">Enter Passcode</h1>
+
+          <input
+            value={passcode}
+            onChange={(e) => setPasscode(e.target.value)}
+            type="password"
+            placeholder="Passcode"
+            className="w-full bg-black/30 border border-white/10 rounded-xl p-4 mb-4"
+          />
+
+          <button
+            onClick={() => {
+              if (passcode === "0000") setUnlockedOwner(true);
+            }}
+            className="btn w-full"
+          >
+            Unlock Dashboard
+          </button>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="px-6 md:px-20 py-10">
       <div className="mb-8">
@@ -329,6 +376,7 @@ export default function OwnerPage() {
               <p className="text-white/60 mb-4">{a.instagram}</p>
               <div className="flex gap-3 flex-wrap">
                 <button onClick={() => featureArtist(a.id)} className="btn">Feature Artist</button>
+                <button onClick={() => markVideoOfWeek(a.id)} className="ghost">Video Of The Week</button>
                 <button onClick={() => removeApproved(a.id)} className="ghost">Remove From Queue</button>
               </div>
             </div>

@@ -29,6 +29,7 @@ export default function Nav() {
     ["Artist Upload", "/upload"],
     ["Record Players", "/record-players"],
     ["Gallery", "/gallery"],
+    ["Video Of The Week", "/video-of-the-week"],
     ["Community", "/community"],
     ["Artists", "/artists"],
     ["Book Service", "/contact"],

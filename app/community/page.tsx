@@ -18,7 +18,32 @@ export default function CommunityPage() {
     setArtists(data || []);
   }
 
+  function getVoterKey() {
+    let key = localStorage.getItem("rr_voter_key");
+
+    if (!key) {
+      key = crypto.randomUUID();
+      localStorage.setItem("rr_voter_key", key);
+    }
+
+    return key;
+  }
+
   async function vote(artist: any) {
+    const voterKey = getVoterKey();
+    const today = new Date().toISOString().slice(0, 10);
+
+    const voteAttempt = await supabase.from("star_votes").insert({
+      upload_id: artist.id,
+      voter_key: voterKey,
+      vote_day: today,
+    });
+
+    if (voteAttempt.error) {
+      alert("You already gave this artist a star today. Come back tomorrow.");
+      return;
+    }
+
     await supabase
       .from("artist_uploads")
       .update({
