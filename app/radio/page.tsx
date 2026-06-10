@@ -108,7 +108,7 @@ const [displayTrack, setDisplayTrack] = useState<any>(null);
     const picked = pickTrack(tracks);
 
     if (!picked || !audioRef.current) {
-      setStatus("No playable track loaded.");
+      setStatus("Tap PLAY to join the live broadcast.");
       return;
     }
 
@@ -222,11 +222,11 @@ setDisplayTrack(picked.track);
                 </p>
 
                 <h1 className="text-6xl md:text-8xl font-black leading-[.82] tracking-[-.06em]">
-                  {displayTrack?.artist || "NO TRACKS"}
+                  {displayTrack?.artist || "PRESS PLAY"}
                 </h1>
 
                 <p className="mt-3 text-xl text-white/70 font-bold">
-                  {displayTrack?.instagram || "Waiting for approved music"}
+                  {displayTrack?.instagram || "Tap PLAY to join the live broadcast"}
                 </p>
 
                 <audio
