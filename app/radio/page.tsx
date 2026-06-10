@@ -137,6 +137,18 @@ setDisplayTrack(picked.track);
   }
 
   useEffect(() => {
+    const wantsAutoPlay = sessionStorage.getItem("rr_radio_autoplay");
+
+    if (wantsAutoPlay === "1") {
+      sessionStorage.removeItem("rr_radio_autoplay");
+
+      setTimeout(() => {
+        playStation();
+      }, 600);
+    }
+  }, []);
+
+  useEffect(() => {
     loadTracks();
     loadWorld();
     const timer = setInterval(loadTracks, 30000);

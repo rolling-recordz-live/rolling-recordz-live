@@ -50,6 +50,12 @@ export default function Nav() {
     ["About", "/about"],
   ];
 
+  function requestRadioAutoPlay(href: string) {
+    if (href === "/radio") {
+      sessionStorage.setItem("rr_radio_autoplay", "1");
+    }
+  }
+
   function NavLabel({ label }: { label: string }) {
     const icon = iconMap[label];
 
@@ -77,7 +83,7 @@ export default function Nav() {
 
         <nav className="hidden lg:flex gap-4 text-sm font-bold">
           {links.map(([label, href]) => (
-            <Link key={href} href={href}>
+            <Link key={href} href={href} onClick={() => requestRadioAutoPlay(href)}>
               <NavLabel label={label} />
             </Link>
           ))}
@@ -94,6 +100,7 @@ export default function Nav() {
                 key={href}
                 href={href}
                 onClick={() => {
+                  requestRadioAutoPlay(href);
                   if (menuRef.current) menuRef.current.open = false;
                 }}
                 className="block rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white font-black"
