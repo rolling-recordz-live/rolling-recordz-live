@@ -211,11 +211,7 @@ setDisplayTrack(picked.track);
                   />
                 ) : (
                   <div className="h-full w-full flex items-center justify-center bg-black">
-                    <img
-                      src="/icons/home.PNG"
-                      alt="Rolling Recordz"
-                      className="w-28 h-28 object-contain opacity-90"
-                    />
+                    <img src="/icons/home.PNG" alt="Rolling Recordz" className="w-full h-full object-cover" />
                   </div>
                 )}
               </div>
