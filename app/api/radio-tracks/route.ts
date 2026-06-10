@@ -16,7 +16,7 @@ export async function GET(req: Request) {
     .from("artist_uploads")
     .select("*")
     .eq("status", "approved")
-    .neq("upload_kind", "video")
+    .or("upload_kind.is.null,upload_kind.eq.song")
     .order("created_at", { ascending: true });
 
   if (genre && genre !== "All") {
