@@ -155,7 +155,7 @@ export default function CommunityPage() {
                     {featured.instagram}
                   </p>
 
-                  <div className="grid grid-cols-3 gap-3 mb-5">
+                  <div className="grid grid-cols-2 gap-3 mb-5">
                     <div className="rounded-2xl bg-black/30 border border-white/10 p-4">
                       <p className="text-white/50 text-sm">Votes</p>
                       <p className="text-[#ffd95a] text-3xl font-black">
